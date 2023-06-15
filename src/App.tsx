@@ -3,7 +3,8 @@ import Home from "./pages/Home";
 import { Routes, Route } from "react-router-dom";
 import "./scss/app.scss";
 import MainLayout from "./layouts/MainLayout";
-import React, { Suspense } from "react";
+import React from "react";
+import { HOME_LOCATION } from "./constants/homeLocation";
 
 const Cart = Loadable({
   loader: () => import(/* webpackChunkName: "Cart" */ "./pages/Cart"),
@@ -19,8 +20,8 @@ const NotFound = Loadable({
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<MainLayout />}>
-        <Route path="" element={<Home />} />
+      <Route path={HOME_LOCATION} element={<MainLayout />}>
+        <Route index element={<Home />} />
         <Route path="cart" element={<Cart />} />
         <Route path="pizza/:id" element={<FullPizza />} />
         <Route path="*" element={<NotFound />} />

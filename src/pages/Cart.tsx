@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CartItem, CartEmpty } from "../components";
 import { selectCart } from "../redux/cart/selectors";
 import { clearItems } from "../redux/cart/slice";
+import { HOME_LOCATION } from "../constants/homeLocation";
 
 const Cart: React.FC = () => {
   const dispatch = useDispatch();
@@ -117,7 +118,7 @@ const Cart: React.FC = () => {
           </div>
           <div className="cart__bottom-buttons">
             <Link
-              to="/"
+              to={HOME_LOCATION}
               className="button button--outline button--add go-back-btn"
             >
               <svg

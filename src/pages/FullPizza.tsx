@@ -2,6 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { HOME_LOCATION } from "../constants/homeLocation";
 type PizzaType = {
   imageUrl: string;
   title: string;
@@ -22,7 +23,7 @@ const FullPizza: React.FC = () => {
         setPizza(data);
       } catch (error) {
         alert("Error when u getting pizzas");
-        navigate("/");
+        navigate(`${HOME_LOCATION}`);
       }
     }
     fetchPizza();
@@ -35,7 +36,7 @@ const FullPizza: React.FC = () => {
       <img src={pizza.imageUrl} alt={pizza.title} />
       <h2>{pizza.title}</h2>
       <h4>{pizza.price} ₴</h4>
-      <Link to="/">
+      <Link to={HOME_LOCATION}>
         <button className="button button--outline button--add">
           <span>Назад</span>
         </button>
