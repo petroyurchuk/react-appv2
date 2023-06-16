@@ -2,7 +2,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import React from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import { HOME_LOCATION } from "../constants/homeLocation";
+import { DESCRIPTION, HOME_LOCATION } from "../constants/homeLocation";
 type PizzaType = {
   imageUrl: string;
   title: string;
@@ -32,15 +32,41 @@ const FullPizza: React.FC = () => {
     return <p>Loading...</p>;
   }
   return (
-    <div className="container">
-      <img src={pizza.imageUrl} alt={pizza.title} />
-      <h2>{pizza.title}</h2>
-      <h4>{pizza.price} ₴</h4>
-      <Link to={HOME_LOCATION}>
-        <button className="button button--outline button--add">
-          <span>Назад</span>
-        </button>
-      </Link>
+    <div
+      className="container"
+      style={{ display: "flex", columnGap: "30px", justifyContent: "center" }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+        }}
+      >
+        <img
+          className="pizza-block__image"
+          src={pizza.imageUrl}
+          alt={pizza.title}
+        />
+      </div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          flexWrap: "wrap",
+          rowGap: "35px",
+          alignItems: "center",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <h3>Назва: {pizza.title}</h3>
+          <h3 style={{ marginTop: "15px" }}>Ціна: {pizza.price}₴</h3>
+        </div>
+        <p className="description">{DESCRIPTION}</p>
+        <Link to={HOME_LOCATION} className="button button--black">
+          <span>Повернутися назад</span>
+        </Link>
+      </div>
     </div>
   );
 };
