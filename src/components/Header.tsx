@@ -28,9 +28,9 @@ export const Header: React.FC = () => {
             </div>
           </div>
         </Link>
-        {pathname !== "/cart" && <Search />}
+        {!pathname.includes("/cart") && <Search />}
         <div className="header__cart">
-          {pathname !== "/cart" ? (
+          {!pathname.includes("/cart") ? (
             <Link to="cart" className="button button--cart">
               <span>{totalPrice} ₴</span>
               <div className="button__delimiter"></div>
