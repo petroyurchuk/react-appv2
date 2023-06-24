@@ -10,6 +10,7 @@ type PizzaType = {
 };
 
 const FullPizza: React.FC = () => {
+  console.log(1);
   const { id } = useParams();
   const navigate = useNavigate();
   const [pizza, setPizza] = React.useState<PizzaType>();

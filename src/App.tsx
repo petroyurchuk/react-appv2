@@ -10,9 +10,10 @@ const Cart = Loadable({
   loader: () => import(/* webpackChunkName: "Cart" */ "./pages/Cart"),
   loading: () => <h2 style={{ textAlign: "center" }}>Loading...</h2>,
 });
-const FullPizza = React.lazy(
-  () => import(/* webpackChunkName: "FullPizza" */ "./pages/FullPizza")
-);
+const FullPizza = Loadable({
+  loader: () => import(/* webpackChunkName: "FullPizza" */ "./pages/FullPizza"),
+  loading: () => <h2 style={{ textAlign: "center" }}>Loading...</h2>,
+});
 const NotFound = Loadable({
   loader: () => import(/* webpackChunkName: "NotFound" */ "./pages/NotFound"),
   loading: () => <h2 style={{ textAlign: "center" }}>Loading...</h2>,
